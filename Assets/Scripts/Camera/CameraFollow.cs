@@ -23,7 +23,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        FollowPayer();
     }
 
     void Snap() // snaping camera into position

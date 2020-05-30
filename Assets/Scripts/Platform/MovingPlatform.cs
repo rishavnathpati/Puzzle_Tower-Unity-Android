@@ -8,10 +8,11 @@ public class MovingPlatform : MonoBehaviour
     private Vector3 startPosition;
 
     [SerializeField]
-    private float smoothMovement;
-    private float initalMoveent;
+    private float smoothMovement = 0.3f;
+    private float initialMovement;
 
     private bool smoothMovementHalfed;
+
     private bool can_Move;
     private bool move_To_Initial;
 
@@ -24,10 +25,22 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     private float timer = 1f;
 
-    private void Awake()
+    //private DoorController doorController;
+
+    [SerializeField]
+    private bool deactivateDoors;
+
+    //private PlatformSoundFX soundFX;
+
+    //private RotatingPlatform rotatePlatform;
+
+    [SerializeField]
+    private bool activateRotation;
+
+    void Awake()
     {
         startPosition = transform.position;
-        initalMoveent = smoothMovement;
+        initialMovement = smoothMovement;
         //activate doors
         //add sound
     }
@@ -45,24 +58,29 @@ public class MovingPlatform : MonoBehaviour
     void Update()
     {
         MovePlatform();
+    }
+
+    void MovePlatform()
+    {
         if (can_Move)
         {
             transform.position = Vector3.MoveTowards(transform.position, movePoint.position, smoothMovement);
             if (Vector3.Distance(transform.position, movePoint.position) <= halfDistance)
             {
-                if(!smoothMovementHalfed)
+                if (!smoothMovementHalfed)
                 {
                     smoothMovement /= 2f;
+                    smoothMovementHalfed = true;
                 }
             }
         }
 
-        if(Vector3.Distance(transform.position,movePoint.position)==0f)
+        if (Vector3.Distance(transform.position, movePoint.position) == 0f)
         {
             can_Move = false;
-            if(smoothMovementHalfed)
+            if (smoothMovementHalfed)
             {
-                smoothMovement = initalMoveent;
+                smoothMovement = initialMovement;
                 smoothMovementHalfed = false;
             }
 
@@ -70,11 +88,6 @@ public class MovingPlatform : MonoBehaviour
 
             // stop playing sound
         }
-    }
-
-    void MovePlatform()
-    {
-
     }
 
     public void ActivateMovement()

@@ -144,6 +144,8 @@ MonoBehaviour:
   halfDistance: 15
   activateMovementInStart: 1
   timer: 1
+  deactivateDoors: 0
+  activateRotation: 0
 --- !u!4 &506356159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4235068360863966, guid: 501727db0303f40a68564be3625e0856,
