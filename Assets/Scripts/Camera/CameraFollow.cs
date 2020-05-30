@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -25,12 +23,12 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void Snap() // snaping camera into position
     {
-        if(target!=null)
+        if (target != null)
         {
             transform.position = target.position;
         }
@@ -42,7 +40,7 @@ public class CameraFollow : MonoBehaviour
 
     void FollowPayer() // follow player
     {
-        if(target!=null)
+        if (target != null)
         {
             transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * moveSmoothing);
         }

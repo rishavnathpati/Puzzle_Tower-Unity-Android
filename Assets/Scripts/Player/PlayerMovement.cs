@@ -53,16 +53,16 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        if(canMove)//if we can move
+        if (canMove)//if we can move
         {
-            dPos = new Vector3(Input.GetAxisRaw(Axis.MOUSE_X), 0f, 
+            dPos = new Vector3(Input.GetAxisRaw(Axis.MOUSE_X), 0f,
                 Input.GetAxisRaw(Axis.MOUSE_Y));
             dPos.Normalize();
             dPos *= moveSpeed * Time.fixedDeltaTime;
             dPos = Quaternion.Euler(0f, mainCam.transform.eulerAngles.y, 0f) * dPos;
             rb.MovePosition(rb.position + dPos);
 
-            if(dPos!=Vector3.zero)
+            if (dPos != Vector3.zero)
             {
                 targetForward = Vector3.ProjectOnPlane(-dPos, Vector3.up);
             }
