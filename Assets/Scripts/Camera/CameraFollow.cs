@@ -17,12 +17,26 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        targetForward = transform.forward;
+        targetForward.y = 0f;
+        Snap();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void Snap()
+    {
+        if(target!=null)
+        {
+            transform.position = target.position;
+        }
+
+        Vector3 forward = targetForward;
+        forward.y = transform.forward.y;
+        transform.forward = forward;
     }
 }
