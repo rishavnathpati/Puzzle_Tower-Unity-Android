@@ -1,0 +1,305 @@
+fileFormatVersion: 2
+guid: e905929c2e1d9fb49be0fcfa2744c072
+timeCreated: 1460844384
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: arm.l
+    100004: arm.l.001
+    100006: arm.l.001_end
+    100008: arm.r
+    100010: arm.r.001
+    100012: arm.r.001_end
+    100014: Armature
+    100016: leg.l
+    100018: leg.l.001
+    100020: leg.l.001_end
+    100022: leg.l.002
+    100024: leg.l.002_end
+    100026: leg.l.poletarget
+    100028: leg.l.poletarget_end
+    100030: leg.r
+    100032: leg.r.001
+    100034: leg.r.001_end
+    100036: leg.r.002
+    100038: leg.r.002_end
+    100040: leg.r.poletarget
+    100042: leg.r.poletarget_end
+    100044: player
+    100046: root
+    100048: spine
+    100050: spine.001
+    100052: spine.002
+    100054: spine.002_end
+    400000: //RootNode
+    400002: arm.l
+    400004: arm.l.001
+    400006: arm.l.001_end
+    400008: arm.r
+    400010: arm.r.001
+    400012: arm.r.001_end
+    400014: Armature
+    400016: leg.l
+    400018: leg.l.001
+    400020: leg.l.001_end
+    400022: leg.l.002
+    400024: leg.l.002_end
+    400026: leg.l.poletarget
+    400028: leg.l.poletarget_end
+    400030: leg.r
+    400032: leg.r.001
+    400034: leg.r.001_end
+    400036: leg.r.002
+    400038: leg.r.002_end
+    400040: leg.r.poletarget
+    400042: leg.r.poletarget_end
+    400044: player
+    400046: root
+    400048: spine
+    400050: spine.001
+    400052: spine.002
+    400054: spine.002_end
+    2300000: //RootNode
+    2300002: player
+    3300000: //RootNode
+    3300002: player
+    4300000: Cylinder
+    4300002: player
+    7400000: Armature|running
+    7400002: Armature|idle
+    9500000: //RootNode
+    13700000: player
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 1
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|running
+      takeName: Armature|running
+      firstFrame: 0
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/spine
+        weight: 1
+      - path: Armature/root/spine/spine.001
+        weight: 1
+      - path: Armature/root/spine/spine.001/spine.002
+        weight: 1
+      - path: Armature/root/spine/spine.001/spine.002/spine.002_end
+        weight: 1
+      - path: Armature/root/spine/leg.l
+        weight: 1
+      - path: Armature/root/spine/leg.l/leg.l.001
+        weight: 1
+      - path: Armature/root/spine/leg.l/leg.l.001/leg.l.001_end
+        weight: 1
+      - path: Armature/root/spine/arm.l
+        weight: 1
+      - path: Armature/root/spine/arm.l/arm.l.001
+        weight: 1
+      - path: Armature/root/spine/arm.l/arm.l.001/arm.l.001_end
+        weight: 1
+      - path: Armature/root/spine/leg.r
+        weight: 1
+      - path: Armature/root/spine/leg.r/leg.r.001
+        weight: 1
+      - path: Armature/root/spine/leg.r/leg.r.001/leg.r.001_end
+        weight: 1
+      - path: Armature/root/spine/arm.r
+        weight: 1
+      - path: Armature/root/spine/arm.r/arm.r.001
+        weight: 1
+      - path: Armature/root/spine/arm.r/arm.r.001/arm.r.001_end
+        weight: 1
+      - path: Armature/leg.l.poletarget
+        weight: 1
+      - path: Armature/leg.l.poletarget/leg.l.poletarget_end
+        weight: 1
+      - path: Armature/leg.r.poletarget
+        weight: 1
+      - path: Armature/leg.r.poletarget/leg.r.poletarget_end
+        weight: 1
+      - path: Armature/leg.l.002
+        weight: 1
+      - path: Armature/leg.l.002/leg.l.002_end
+        weight: 1
+      - path: Armature/leg.r.002
+        weight: 1
+      - path: Armature/leg.r.002/leg.r.002_end
+        weight: 1
+      - path: player
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|idle
+      takeName: Armature|idle
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/spine
+        weight: 1
+      - path: Armature/root/spine/spine.001
+        weight: 1
+      - path: Armature/root/spine/spine.001/spine.002
+        weight: 1
+      - path: Armature/root/spine/spine.001/spine.002/spine.002_end
+        weight: 1
+      - path: Armature/root/spine/leg.l
+        weight: 1
+      - path: Armature/root/spine/leg.l/leg.l.001
+        weight: 1
+      - path: Armature/root/spine/leg.l/leg.l.001/leg.l.001_end
+        weight: 1
+      - path: Armature/root/spine/arm.l
+        weight: 1
+      - path: Armature/root/spine/arm.l/arm.l.001
+        weight: 1
+      - path: Armature/root/spine/arm.l/arm.l.001/arm.l.001_end
+        weight: 1
+      - path: Armature/root/spine/leg.r
+        weight: 1
+      - path: Armature/root/spine/leg.r/leg.r.001
+        weight: 1
+      - path: Armature/root/spine/leg.r/leg.r.001/leg.r.001_end
+        weight: 1
+      - path: Armature/root/spine/arm.r
+        weight: 1
+      - path: Armature/root/spine/arm.r/arm.r.001
+        weight: 1
+      - path: Armature/root/spine/arm.r/arm.r.001/arm.r.001_end
+        weight: 1
+      - path: Armature/root/leg.l.poletarget
+        weight: 1
+      - path: Armature/root/leg.l.poletarget/leg.l.poletarget_end
+        weight: 1
+      - path: Armature/root/leg.l.002
+        weight: 1
+      - path: Armature/root/leg.l.002/leg.l.002_end
+        weight: 1
+      - path: Armature/root/leg.r.002
+        weight: 1
+      - path: Armature/root/leg.r.002/leg.r.002_end
+        weight: 1
+      - path: Armature/root/leg.r.poletarget
+        weight: 1
+      - path: Armature/root/leg.r.poletarget/leg.r.poletarget_end
+        weight: 1
+      - path: player
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.35
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: root
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
