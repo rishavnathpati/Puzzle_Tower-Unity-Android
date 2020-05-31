@@ -25,12 +25,12 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     private float timer = 1f;
 
-    //private DoorController doorController;
+    private DoorController doorController;
 
     [SerializeField]
     private bool deactivateDoors;
 
-    //private PlatformSoundFX soundFX;
+    private PlatformSoundFX soundFX;
 
     //private RotatingPlatform rotatePlatform;
 
@@ -42,7 +42,9 @@ public class MovingPlatform : MonoBehaviour
         startPosition = transform.position;
         initialMovement = smoothMovement;
         //activate doors
+        doorController = GetComponent<DoorController>();
         //add sound
+        soundFX = GetComponent<PlatformSoundFX>();
     }
 
     // Start is called before the first frame update
@@ -51,6 +53,7 @@ public class MovingPlatform : MonoBehaviour
         if (activateMovementInStart)
         {
             Invoke("ActivateMovement", timer);
+            soundFX.PlayAudio(true);
         }
     }
 
@@ -85,8 +88,13 @@ public class MovingPlatform : MonoBehaviour
             }
 
             // deactivate door
+            if(deactivateDoors)
+            {
+                doorController.OpenDoor();
+            }
 
             // stop playing sound
+            soundFX.PlayAudio(false);
         }
     }
 
