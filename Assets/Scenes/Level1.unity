@@ -612,6 +612,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSmoothing: 10
   rotationSmoothing: 15
+--- !u!1 &1477455710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1696418613154472, guid: 60495abac959942229e8d863d1bd6c4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1002068223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1477455711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477455710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4dc8adc0139f14197530f3db1e3d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1477455712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477455710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05030df09c6d7204ca7d4e86a9bbb892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelField: Level2
+  timer: 2
 --- !u!1 &1664550923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1612746462924732, guid: 24f053854ac0749e69697f307249841a,

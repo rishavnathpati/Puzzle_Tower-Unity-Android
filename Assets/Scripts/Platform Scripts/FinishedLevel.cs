@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishedLevel : MonoBehaviour
 {
@@ -19,15 +20,24 @@ public class FinishedLevel : MonoBehaviour
         soundFX = GetComponent<PlatformSoundFX>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void LoadNewLevel()
     {
-        
+        SceneManager.LoadScene(nextLevelField);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.CompareTag(Tags.PLAYER_TAG))
+        {
+            if(!levelFinished)
+            {
+                levelFinished = true;
+                soundFX.PlayAudio(true);
+                if(!nextLevelField.Equals(""))
+                {
+                    Invoke("LoadNewLevel", timer);
+                }
+            }
+        }
     }
 }
