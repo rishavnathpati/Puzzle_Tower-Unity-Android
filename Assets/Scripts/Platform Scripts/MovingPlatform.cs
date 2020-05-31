@@ -88,7 +88,7 @@ public class MovingPlatform : MonoBehaviour
             }
 
             // deactivate door
-            if(deactivateDoors)
+            if (deactivateDoors)
             {
                 doorController.OpenDoor();
             }

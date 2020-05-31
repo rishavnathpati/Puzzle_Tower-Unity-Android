@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class DoorController : MonoBehaviour
     {
         children = transform.GetComponentsInChildren<Transform>();
 
-        if(deactivateInStart)
+        if (deactivateInStart)
         {
             OpenDoor();
         }
@@ -21,9 +19,9 @@ public class DoorController : MonoBehaviour
 
     public void OpenDoor()
     {
-        foreach(Transform c in children)
+        foreach (Transform c in children)
         {
-            if(c.CompareTag(Tags.DOOR_TAG))
+            if (c.CompareTag(Tags.DOOR_TAG))
             {
                 c.gameObject.GetComponent<Collider>().isTrigger = true;
             }
