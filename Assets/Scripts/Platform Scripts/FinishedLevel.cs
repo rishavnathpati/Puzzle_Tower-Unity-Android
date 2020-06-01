@@ -3,41 +3,84 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FinishedLevel : MonoBehaviour
-{
+public class FinishedLevel : MonoBehaviour {
 
     [SerializeField]
-    private string nextLevelField;
+    private string nextLevelName;
 
     [SerializeField]
-    private float timer=2f;
+    private float timer = 2f;
 
     private bool levelFinished;
+
     private PlatformSoundFX soundFX;
 
-    private void Awake()
-    {
+    void Awake() {
         soundFX = GetComponent<PlatformSoundFX>();
     }
 
-    void LoadNewLevel()
-    {
-        SceneManager.LoadScene(nextLevelField);
+    void LoadNewLevel() {
+        SceneManager.LoadScene(nextLevelName);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag(Tags.PLAYER_TAG))
-        {
-            if(!levelFinished)
-            {
+    void OnTriggerEnter(Collider target) {
+
+        if(target.CompareTag(Tags.PLAYER_TAG)) { 
+        
+            if(!levelFinished) {
+
                 levelFinished = true;
+
                 soundFX.PlayAudio(true);
-                if(!nextLevelField.Equals(""))
-                {
+
+                if(!nextLevelName.Equals("")) {
                     Invoke("LoadNewLevel", timer);
                 }
+
             }
+
         }
+
     }
-}
+
+
+
+} // class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

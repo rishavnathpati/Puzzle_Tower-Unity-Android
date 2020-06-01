@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
-{
+public class MovingPlatform : MonoBehaviour {
+
     [SerializeField]
     private Transform movePoint;
 
@@ -32,75 +34,169 @@ public class MovingPlatform : MonoBehaviour
 
     private PlatformSoundFX soundFX;
 
-    //private RotatingPlatform rotatePlatform;
+    private RotatingPlatform rotatePlatform;
 
     [SerializeField]
     private bool activateRotation;
 
-    void Awake()
-    {
+    void Awake() {
+
         startPosition = transform.position;
         initialMovement = smoothMovement;
-        //activate doors
+
+        // activate doors
         doorController = GetComponent<DoorController>();
-        //add sound
+
+        // add sound
         soundFX = GetComponent<PlatformSoundFX>();
+
+        if (activateRotation)
+            rotatePlatform = GetComponent<RotatingPlatform>();
+
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (activateMovementInStart)
-        {
+    void Start() {
+        if(activateMovementInStart) {
             Invoke("ActivateMovement", timer);
-            soundFX.PlayAudio(true);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         MovePlatform();
+        MoveToInitialPosition();
     }
 
-    void MovePlatform()
-    {
-        if (can_Move)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, smoothMovement);
-            if (Vector3.Distance(transform.position, movePoint.position) <= halfDistance)
-            {
-                if (!smoothMovementHalfed)
-                {
+    void MovePlatform() { 
+
+        if(can_Move) {
+
+            transform.position = Vector3.MoveTowards(transform.position,
+            movePoint.position, smoothMovement);
+
+            if(Vector3.Distance(transform.position, movePoint.position) <= halfDistance) { 
+
+                if(!smoothMovementHalfed) {
+
                     smoothMovement /= 2f;
                     smoothMovementHalfed = true;
+
                 }
+
             }
+
+            if(Vector3.Distance(transform.position, movePoint.position) == 0f) {
+
+                can_Move = false;
+
+                if(smoothMovementHalfed) {
+                    smoothMovement = initialMovement;
+                    smoothMovementHalfed = false;
+                }
+
+                // deactivate doors
+                if(deactivateDoors) {
+                    doorController.OpenDoors();
+                }
+
+                // stop playing the sound FX
+                soundFX.PlayAudio(false);
+
+            }
+
+
         }
 
-        if (Vector3.Distance(transform.position, movePoint.position) == 0f)
-        {
-            can_Move = false;
-            if (smoothMovementHalfed)
-            {
-                smoothMovement = initialMovement;
-                smoothMovementHalfed = false;
-            }
+    } // move platform
 
-            // deactivate door
-            if (deactivateDoors)
-            {
-                doorController.OpenDoor();
-            }
-
-            // stop playing sound
-            soundFX.PlayAudio(false);
-        }
-    }
-
-    public void ActivateMovement()
-    {
+    public void ActivateMovement() {
         can_Move = true;
-        //play sound
+
+        // play sound fx
+        soundFX.PlayAudio(true);
+
+        // rotate
+        if(activateRotation) {
+            rotatePlatform.ActivateRotation();
+        }
     }
-}
+
+    public void ActivateMoveToInitial() {
+
+        move_To_Initial = true;
+        soundFX.PlayAudio(true);
+    
+    }
+
+    void MoveToInitialPosition() { 
+
+        if(move_To_Initial) {
+
+            transform.position = Vector3.MoveTowards(transform.position,
+                startPosition, smoothMovement);
+
+            if(Vector3.Distance(transform.position, startPosition) <= halfDistance) { 
+
+                if(!smoothMovementHalfed) {
+                    smoothMovement /= 2f;
+
+                    smoothMovementHalfed = true;
+                }
+
+            }
+
+            if(Vector3.Distance(transform.position, startPosition) == 0f) {
+
+                move_To_Initial = false;
+
+                if(smoothMovementHalfed) {
+                    smoothMovementHalfed = false;
+                    smoothMovement = initialMovement;
+                }
+
+                soundFX.PlayAudio(false);
+
+            }
+
+
+        } // if move to initial
+
+    }
+
+} //class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

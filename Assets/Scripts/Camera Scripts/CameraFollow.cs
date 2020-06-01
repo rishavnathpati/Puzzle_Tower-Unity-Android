@@ -1,48 +1,47 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
-{
+public class CameraFollow : MonoBehaviour {
+
     public float moveSmoothing = 10f;
     public float rotationSmoothing = 15f;
 
     private Transform target;
+
     private Vector3 targetForward;
 
-    private void Awake()
-    {
+    void Awake() {
         target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    void Start() {
         targetForward = transform.forward;
         targetForward.y = 0f;
         Snap();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        FollowPayer();
+    void Update() {
+        FollowPlayer();
     }
 
-    void Snap() // snaping camera into position
-    {
-        if (target != null)
-        {
+    void Snap() { 
+        if(target != null) {
             transform.position = target.position;
         }
 
         Vector3 forward = targetForward;
         forward.y = transform.forward.y;
         transform.forward = forward;
-    }
 
-    void FollowPayer() // follow player
-    {
-        if (target != null)
-        {
-            transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * moveSmoothing);
+    } // snap
+
+    void FollowPlayer() { 
+    
+        if(target != null) {
+            transform.position =
+                Vector3.Lerp(transform.position, target.position, Time.deltaTime * moveSmoothing);   
         }
 
         Vector3 forward = transform.forward;
@@ -50,5 +49,45 @@ public class CameraFollow : MonoBehaviour
         forward = Vector3.Slerp(forward, targetForward, Time.deltaTime * rotationSmoothing);
         forward.y = transform.forward.y;
         transform.forward = forward;
-    }
-}
+
+    } // follow player
+
+
+} // class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
