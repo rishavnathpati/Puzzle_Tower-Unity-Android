@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour {
+public class MovingPlatform : MonoBehaviour
+{
 
     [SerializeField]
-    private Transform movePoint;
+    private readonly Transform movePoint;
 
     private Vector3 startPosition;
 
@@ -19,27 +18,28 @@ public class MovingPlatform : MonoBehaviour {
     private bool move_To_Initial;
 
     [SerializeField]
-    private float halfDistance = 15f;
+    private readonly float halfDistance = 15f;
 
     [SerializeField]
-    private bool activateMovementInStart;
+    private readonly bool activateMovementInStart;
 
     [SerializeField]
-    private float timer = 1f;
+    private readonly float timer = 1f;
 
     private DoorController doorController;
 
     [SerializeField]
-    private bool deactivateDoors;
+    private readonly bool deactivateDoors;
 
     private PlatformSoundFX soundFX;
 
     private RotatingPlatform rotatePlatform;
 
     [SerializeField]
-    private bool activateRotation;
+    private readonly bool activateRotation;
 
-    void Awake() {
+    private void Awake()
+    {
 
         startPosition = transform.position;
         initialMovement = smoothMovement;
@@ -51,31 +51,39 @@ public class MovingPlatform : MonoBehaviour {
         soundFX = GetComponent<PlatformSoundFX>();
 
         if (activateRotation)
+        {
             rotatePlatform = GetComponent<RotatingPlatform>();
-
+        }
     }
 
-    void Start() {
-        if(activateMovementInStart) {
+    private void Start()
+    {
+        if (activateMovementInStart)
+        {
             Invoke("ActivateMovement", timer);
         }
     }
 
-    void Update() {
+    private void Update()
+    {
         MovePlatform();
         MoveToInitialPosition();
     }
 
-    void MovePlatform() { 
+    private void MovePlatform()
+    {
 
-        if(can_Move) {
+        if (can_Move)
+        {
 
             transform.position = Vector3.MoveTowards(transform.position,
             movePoint.position, smoothMovement);
 
-            if(Vector3.Distance(transform.position, movePoint.position) <= halfDistance) { 
+            if (Vector3.Distance(transform.position, movePoint.position) <= halfDistance)
+            {
 
-                if(!smoothMovementHalfed) {
+                if (!smoothMovementHalfed)
+                {
 
                     smoothMovement /= 2f;
                     smoothMovementHalfed = true;
@@ -84,17 +92,20 @@ public class MovingPlatform : MonoBehaviour {
 
             }
 
-            if(Vector3.Distance(transform.position, movePoint.position) == 0f) {
+            if (Vector3.Distance(transform.position, movePoint.position) == 0f)
+            {
 
                 can_Move = false;
 
-                if(smoothMovementHalfed) {
+                if (smoothMovementHalfed)
+                {
                     smoothMovement = initialMovement;
                     smoothMovementHalfed = false;
                 }
 
                 // deactivate doors
-                if(deactivateDoors) {
+                if (deactivateDoors)
+                {
                     doorController.OpenDoors();
                 }
 
@@ -108,35 +119,42 @@ public class MovingPlatform : MonoBehaviour {
 
     } // move platform
 
-    public void ActivateMovement() {
+    public void ActivateMovement()
+    {
         can_Move = true;
 
         // play sound fx
         soundFX.PlayAudio(true);
 
         // rotate
-        if(activateRotation) {
+        if (activateRotation)
+        {
             rotatePlatform.ActivateRotation();
         }
     }
 
-    public void ActivateMoveToInitial() {
+    public void ActivateMoveToInitial()
+    {
 
         move_To_Initial = true;
         soundFX.PlayAudio(true);
-    
+
     }
 
-    void MoveToInitialPosition() { 
+    private void MoveToInitialPosition()
+    {
 
-        if(move_To_Initial) {
+        if (move_To_Initial)
+        {
 
             transform.position = Vector3.MoveTowards(transform.position,
                 startPosition, smoothMovement);
 
-            if(Vector3.Distance(transform.position, startPosition) <= halfDistance) { 
+            if (Vector3.Distance(transform.position, startPosition) <= halfDistance)
+            {
 
-                if(!smoothMovementHalfed) {
+                if (!smoothMovementHalfed)
+                {
                     smoothMovement /= 2f;
 
                     smoothMovementHalfed = true;
@@ -144,11 +162,13 @@ public class MovingPlatform : MonoBehaviour {
 
             }
 
-            if(Vector3.Distance(transform.position, startPosition) == 0f) {
+            if (Vector3.Distance(transform.position, startPosition) == 0f)
+            {
 
                 move_To_Initial = false;
 
-                if(smoothMovementHalfed) {
+                if (smoothMovementHalfed)
+                {
                     smoothMovementHalfed = false;
                     smoothMovement = initialMovement;
                 }

@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerColorController : MonoBehaviour {
+public class PlayerColorController : MonoBehaviour
+{
 
     public string PLAYER_COLOR = "";
 
-    void Start() {
+    private void Start()
+    {
         PLAYER_COLOR = Tags.WHITE_COLOR;
     }
 

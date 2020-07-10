@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlatformButton : MonoBehaviour {
+public class PlatformButton : MonoBehaviour
+{
 
     private RotatingPlatform rotatingPlatform;
 
-    void Awake() {
+    private void Awake()
+    {
         rotatingPlatform = GetComponentInParent<RotatingPlatform>();
     }
 
-    void OnTriggerEnter(Collider target) {
+    private void OnTriggerEnter(Collider target)
+    {
 
-        if(target.CompareTag(Tags.PLAYER_TAG)) {
+        if (target.CompareTag(Tags.PLAYER_TAG))
+        {
             rotatingPlatform.ActivateRotation();
         }
 

@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     private Rigidbody rb;
 
     public float moveSpeed = 3f;
-    private float smoothMovement = 15f;
+    private readonly float smoothMovement = 15f;
 
     private Vector3 targetForward;
 
@@ -17,31 +16,38 @@ public class PlayerMovement : MonoBehaviour {
 
     private Camera mainCam;
 
-    void Awake() {
+    private void Awake()
+    {
         rb = GetComponent<Rigidbody>();
         targetForward = transform.forward;
 
         mainCam = Camera.main;
     }
 
-    void Update() {
+    private void Update()
+    {
 
         GetInput();
 
         UpdateForward();
     }
 
-    void FixedUpdate() {
+    private void FixedUpdate()
+    {
         MovePlayer();
     }
 
-    void GetInput() { 
+    private void GetInput()
+    {
 
-        if(Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
 
             canMove = true;
-            
-        } else if(Input.GetMouseButtonUp(0)) {
+
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
 
             canMove = false;
 
@@ -49,16 +55,19 @@ public class PlayerMovement : MonoBehaviour {
 
     } // get input
 
-    void UpdateForward() {
+    private void UpdateForward()
+    {
         transform.forward = Vector3.Slerp(
             transform.forward, targetForward, Time.deltaTime * smoothMovement);
     } // update forward
 
-    void MovePlayer() { 
-    
-        if(canMove) {
+    private void MovePlayer()
+    {
 
-            dPos = new Vector3(Input.GetAxisRaw(Axis.MOUSE_X), 0f, 
+        if (canMove)
+        {
+
+            dPos = new Vector3(Input.GetAxisRaw(Axis.MOUSE_X), 0f,
                     Input.GetAxisRaw(Axis.MOUSE_Y));
 
             dPos.Normalize();
@@ -67,7 +76,8 @@ public class PlayerMovement : MonoBehaviour {
             dPos = Quaternion.Euler(0f, mainCam.transform.eulerAngles.y, 0f) * dPos;
             rb.MovePosition(rb.position + dPos);
 
-            if(dPos != Vector3.zero) {
+            if (dPos != Vector3.zero)
+            {
                 targetForward = Vector3.ProjectOnPlane(-dPos, Vector3.up);
             }
 
@@ -76,7 +86,9 @@ public class PlayerMovement : MonoBehaviour {
 
     } // move player
 
+    //Making this comment to check collab with samiparnab1
 
+    ///checked ....this is working
 
 } // class
 

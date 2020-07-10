@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraFollow : MonoBehaviour {
+public class CameraFollow : MonoBehaviour
+{
 
     public float moveSmoothing = 10f;
     public float rotationSmoothing = 15f;
@@ -11,23 +10,28 @@ public class CameraFollow : MonoBehaviour {
 
     private Vector3 targetForward;
 
-    void Awake() {
+    private void Awake()
+    {
         target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
     }
 
-    void Start() {
+    private void Start()
+    {
         targetForward = transform.forward;
         targetForward.y = 0f;
         Snap();
     }
 
     // Update is called once per frame
-    void Update() {
+    private void Update()
+    {
         FollowPlayer();
     }
 
-    void Snap() { 
-        if(target != null) {
+    private void Snap()
+    {
+        if (target != null)
+        {
             transform.position = target.position;
         }
 
@@ -37,11 +41,13 @@ public class CameraFollow : MonoBehaviour {
 
     } // snap
 
-    void FollowPlayer() { 
-    
-        if(target != null) {
+    private void FollowPlayer()
+    {
+
+        if (target != null)
+        {
             transform.position =
-                Vector3.Lerp(transform.position, target.position, Time.deltaTime * moveSmoothing);   
+                Vector3.Lerp(transform.position, target.position, Time.deltaTime * moveSmoothing);
         }
 
         Vector3 forward = transform.forward;
@@ -54,6 +60,8 @@ public class CameraFollow : MonoBehaviour {
 
 
 } // class
+
+//unity collab........ekdom kaaaj korche, puro changa////yo boi....
 
 
 

@@ -1,19 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlatformSoundFX : MonoBehaviour {
+public class PlatformSoundFX : MonoBehaviour
+{
 
     private AudioSource audioFX;
 
-    void Awake() {
+    private void Awake()
+    {
         audioFX = GetComponent<AudioSource>();
     }
 
-    public void PlayAudio(bool play) { 
-        if(play) {
+    public void PlayAudio(bool play)
+    {
+        if (play)
+        {
             audioFX.Play();
-        } else {
+        }
+        else
+        {
             audioFX.Stop();
         }
     }

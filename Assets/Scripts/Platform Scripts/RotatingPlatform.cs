@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class RotatingPlatform : MonoBehaviour {
+public class RotatingPlatform : MonoBehaviour
+{
 
     [SerializeField]
     private Vector3 rotationAngles;
@@ -10,30 +9,34 @@ public class RotatingPlatform : MonoBehaviour {
     private Quaternion initialRotation;
 
     [SerializeField]
-    private float smoothRotate = 1f;
+    private readonly float smoothRotate = 1f;
 
     [SerializeField]
     private bool can_Rotate;
 
-    private bool back_To_Initial_Rotation;
+    private readonly bool back_To_Initial_Rotation;
 
     [SerializeField]
-    private float deactivateTimer = 5f;
+    private readonly float deactivateTimer = 5f;
 
     private PlatformSoundFX soundFX;
 
-    void Awake() {
+    private void Awake()
+    {
         initialRotation = transform.rotation;
         soundFX = GetComponent<PlatformSoundFX>();
     }
 
     // Update is called once per frame
-    void Update() {
+    private void Update()
+    {
         RotatePlatform();
     }
 
-    void RotatePlatform() { 
-        if(can_Rotate) {
+    private void RotatePlatform()
+    {
+        if (can_Rotate)
+        {
 
             transform.rotation = Quaternion.Lerp(transform.rotation,
                 Quaternion.Euler(rotationAngles.x, rotationAngles.y, rotationAngles.z),
@@ -42,9 +45,11 @@ public class RotatingPlatform : MonoBehaviour {
         }
     }
 
-    public void ActivateRotation() { 
+    public void ActivateRotation()
+    {
 
-        if(!can_Rotate) {
+        if (!can_Rotate)
+        {
 
             can_Rotate = true;
 
@@ -52,12 +57,13 @@ public class RotatingPlatform : MonoBehaviour {
 
             // deactivate
             Invoke("DeactivateRotation", deactivateTimer);
-             
+
         }
 
     } // activate rotaton
 
-    void DeactivateRotation() {
+    private void DeactivateRotation()
+    {
 
         can_Rotate = false;
         soundFX.PlayAudio(false);

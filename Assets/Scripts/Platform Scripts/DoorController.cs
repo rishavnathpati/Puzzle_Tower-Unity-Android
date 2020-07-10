@@ -1,28 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DoorController : MonoBehaviour {
+public class DoorController : MonoBehaviour
+{
 
     private Transform[] children;
 
     [SerializeField]
-    private bool deactivateInStart;
+    private readonly bool deactivateInStart;
 
-    void Start() {
+    private void Start()
+    {
         children = transform.GetComponentsInChildren<Transform>();
 
-        if(deactivateInStart) {
+        if (deactivateInStart)
+        {
             OpenDoors();
         }
 
     }
 
-    public void OpenDoors() { 
-    
-        foreach(Transform c in children) { 
+    public void OpenDoors()
+    {
 
-            if(c.CompareTag(Tags.DOOR_TAG)) {
+        foreach (Transform c in children)
+        {
+
+            if (c.CompareTag(Tags.DOOR_TAG))
+            {
                 c.gameObject.GetComponent<Collider>().isTrigger = true;
             }
         }

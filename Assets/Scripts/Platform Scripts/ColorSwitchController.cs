@@ -1,21 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ColorSwitchController : MonoBehaviour {
+public class ColorSwitchController : MonoBehaviour
+{
 
     [SerializeField]
-    private bool red_Color, white_Color;
+    private readonly bool red_Color, white_Color;
 
-    void OnTriggerEnter(Collider target) {
+    private void OnTriggerEnter(Collider target)
+    {
 
-        if(target.CompareTag(Tags.PLAYER_TAG)) { 
-        
-            if(red_Color) {
+        if (target.CompareTag(Tags.PLAYER_TAG))
+        {
+
+            if (red_Color)
+            {
                 target.GetComponent<PlayerColorController>().PLAYER_COLOR = Tags.RED_COLOR;
             }
 
-            if (white_Color) {
+            if (white_Color)
+            {
                 target.GetComponent<PlayerColorController>().PLAYER_COLOR = Tags.WHITE_COLOR;
             }
 
